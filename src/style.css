@@ -1,0 +1,109 @@
+.LoginPage,.ShunZhi{
+  width: 10.8rem;
+  height: 100vh;
+  background-image: url(./images/28445967-58758f24-6dfa-11e7-8ebf-302b33d6e995_02.jpg)
+}
+.LoginPage_main,.ShunZhi_main{
+  width: 9.6rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.LoginPage_main header .header_Top{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.2rem;
+}
+.LoginPage_main header .header_Top{
+  color: #fff;
+  font-size: 0.5rem;
+}
+.LoginPage_main header .header_Bottom{
+  margin-top: 1.8rem;
+}
+.LoginPage_main header .header_Bottom p{
+  text-align: center;
+  color: #fff;
+  font-size: 0.9rem;
+}
+.LoginPage_main header .header_Bottom p:nth-child(2){
+  font-size: 0.5rem;
+  margin-top: 0.4rem;
+}
+.main form{
+  margin-top: 2rem;
+  height: 9rem;
+}
+.main form>div{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main form input,button{
+  display: block;
+  margin: 0 auto;
+  outline: none;
+  border: none;
+  width: 8.4rem;
+  font-size: 0.5rem;
+  line-height: 1.7rem;
+  color: rgb(179, 179, 179);
+  background-color: #fff;
+}
+.main form input{
+  border-top: 2px solid rgb(245, 240, 243);
+  text-indent: 0.6rem;
+}
+.main form button{
+  color: rgb(237, 141, 133);
+  margin-bottom: 0;
+  border-radius: 2px;
+  text-align: center;
+}
+.main a{
+  display: block;
+  text-align: center;
+  color: #fff;
+  font-size: 0.4rem;
+  margin-top: 0.4rem;
+}
+.ShunZhi_main img{
+  width: 3.45rem;
+}
+.ShunZhi_main p:nth-child(2){
+  font-size: 0.9rem;
+  color: #fff;
+}
+.ShunZhi_main p:nth-child(3){
+  font-size: 0.5rem;
+  color: #fff;
+}
+.ShunZhi_main{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.ShunZhi_main .ShunZhi_main_top{
+  height: 9.5rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.ShunZhi_main .ShunZhi_main_bottom{
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ShunZhi_main .ShunZhi_main_bottom a{
+  width: 4.5rem;
+  color: rgb(246, 116, 103);
+  background-color: #fff;
+  text-align: center;
+  line-height: 1.7rem;
+}

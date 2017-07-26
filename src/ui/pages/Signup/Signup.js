@@ -4,6 +4,9 @@ import './signup.css'
 import { Link } from 'react-router-dom'
 import url from '../../../Settings'
 import axios from 'axios'
+import Error from '../../share/Error/Error'
+import store from '../../../store'
+import { connect } from 'react-redux'
 
 class Signup extends React.Component{
   signup = e =>{
@@ -15,12 +18,15 @@ class Signup extends React.Component{
     if (password === repeat) {
       axios.post(`${url.host}/user/signup`,{username, password})
         .then( res => console.log(res.data))
-        .catch( err => console.log(err))
+        .catch( err => store.dispatch({type:'true', error:true}))
     }
   }
   render(){
     return(
       <div className="signup">
+        {
+          this.props.error?<Error />:null
+        }
         <Header title="signup" />
         <div className="signup-wrap">
           <div className="signup-wrap-header">
@@ -44,4 +50,7 @@ class Signup extends React.Component{
     )
   }
 }
-export default Signup
+const mapStateToProps = (state) =>({
+  error:state.error
+})
+export default connect(mapStateToProps)(Signup)

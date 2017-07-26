@@ -1,0 +1,43 @@
+.home {
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+   justify-content: space-between;
+}
+.home-hero{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.home h1{
+  font-size: 33px;
+  color: #FFFFFF;
+  /*颜色最好6位大写*/
+  line-height: 32px;
+  text-align: center;
+  margin-top: 74px;
+}
+.home p{
+  font-size: 16px;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 53px;
+}
+.home-actions{
+  margin-bottom: 90px;
+  display: flex;
+  justify-content: space-around;
+}
+.home-actions>a{
+  display: block;
+  line-height: 56px;
+  font-size: 16px;
+  width: 150px;
+  text-align: center;
+  background-color: #FFFFFF;
+  color: red;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0,20);
+  border-radius: 2px;
+}

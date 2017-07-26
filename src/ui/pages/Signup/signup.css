@@ -1,0 +1,88 @@
+.signup{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.signup-wrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+/*hero 部分*/
+.signup-wrap-header{
+  height: 140px;
+}
+.signup-wrap-header h1{
+  font-size: 36px;
+  color: #FFFFFF;
+  line-height: 42px;
+  text-align: center;
+  margin-top: 54px;
+}
+.signup-wrap-header p{
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+  color: #fff;
+}
+
+/*form input 部分*/
+.signup-wrap-form{
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 280px;
+  margin: 0 auto;
+}
+.signup-wrap-form .signup-wrap-form-inputs{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.signup-wrap-form .signup-wrap-form-inputs div{
+  display: flex;
+  flex-direction: column;
+}
+.signup-wrap-form input{
+  flex-grow: 1;
+  line-height: 56px;
+  border: none;
+  outline: none;
+  text-indent: 20px;
+  border-bottom: 1px solid #E3E9EC;
+  color: #878787;
+}
+.signup-wrap-form input::placeholder{
+  color: #CECECE;
+}
+.signup-wrap-form button{
+  display: block;
+  border: 0;
+  line-height: 56px;
+  outline: none;
+  width: 280px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.20);
+  border-right: 2px;
+  font-size: 14px;
+  color: #F77062;
+}
+
+/*signup-other-option 部分*/
+.signup-wrap-footer{
+  margin-top: 15px;
+  margin-bottom: 35px;
+  text-align: center;
+}
+.signup-wrap-footer a{
+  font-size: 16px;
+  display: block;
+  color: white;
+  line-height: 20px;
+}

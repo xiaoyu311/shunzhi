@@ -27,7 +27,7 @@ class Sidebar extends React.Component{
           <div className="bm-list-wrap">
             <img src="http://media.haoduoshipin.com/yummy/default-avatar.png" alt="avatar" />
             <div>
-              {this.props.isAuthenticated? authStr : userInfo}
+              {this.props.isAuthenticated ? authStr : userInfo}
             </div>
           </div>
           <div className="bm-list-main">

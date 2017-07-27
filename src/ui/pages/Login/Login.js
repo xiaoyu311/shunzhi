@@ -20,6 +20,7 @@ class Login extends React.Component{
         this.props.dispatch({type:'SIGN_UP', username:res.data.username})
         this.form.reset()
         localStorage.setItem('userId', res.data.userId)
+        this.props.history.push('/dashborder')
       })
       .catch( err => this.props.dispatch({type:'SHOW_ALERT', msg:err.response.data.msg}))
     }

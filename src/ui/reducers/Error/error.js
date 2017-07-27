@@ -1,11 +1,14 @@
+let defaultStateErr = {
+  error:false,
+  msg:''
+}
 
-
-export default function errorReducer(state = false, action){
+export default function errorReducer(state = defaultStateErr, action){
   switch (action.type) {
-    case 'true':
-      return true
-    case 'false':
-      return false
+    case 'SHOW_ALERT':
+      return {...state,error:true, msg:action.msg}
+    case 'HIDE_ALERT':
+      return {...state, error:false}
     default:
       return state
   }

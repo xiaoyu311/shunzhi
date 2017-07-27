@@ -1,7 +1,9 @@
 import errorReducer from './Error/error'
+import accountReducer from './account/accountReducer'
 import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
-  error:errorReducer
+  stateErr:errorReducer,
+  account:accountReducer
 })
 export default rootReducer

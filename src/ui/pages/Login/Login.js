@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 import './login.css'
 import axios from 'axios'
 import url from '../../../Settings'
-import Error from '../../share/Error/Error'
-import store from '../../../store'
 import { connect } from 'react-redux'
 
 class Login extends React.Component{
@@ -13,23 +11,29 @@ class Login extends React.Component{
     e.preventDefault()
     let username = this.username.value
     let password = this.password.value
-    axios.post(`${url.host}/user/login`,{username, password})
-      .then( res => console.log(res))
-      .catch( err => store.dispatch({type:'true', error:true}))
+    let userId = localStorage.getItem('userId')
+    if (userId) {
+      this.props.dispatch({type:'SHOW_ALERT', msg:'请先退出次账号'})
+    }else{
+      axios.post(`${url.host}/user/login`,{username, password})
+      .then( res => {
+        this.props.dispatch({type:'SIGN_UP', username:res.data.username})
+        this.form.reset()
+        localStorage.setItem('userId', res.data.userId)
+      })
+      .catch( err => this.props.dispatch({type:'SHOW_ALERT', msg:err.response.data.msg}))
+    }
   }
   render(){
     return(
       <div className="login">
-        {
-          this.props.error?<Error />:null
-        }
         <Header title="login" />
         <div className="login-wrap">
           <div className="login-wrap-header">
             <h1>登录</h1>
             <p>连接一个小小而确定的幸福</p>
           </div>
-          <form onSubmit={this.login} className="login-wrap-form">
+          <form ref={value => this.form = value} onSubmit={this.login} className="login-wrap-form">
             <div className="login-wrap-form-inputs">
               <div>
                 <input ref={value => this.username = value} type="text" placeholder="用户名" />
@@ -45,7 +49,4 @@ class Login extends React.Component{
   }
 }
 
-const mapStateToProps = (state) =>({
-  error:state.error
-})
-export default connect(mapStateToProps)(Login)
+export default connect(null)(Login)

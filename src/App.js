@@ -10,6 +10,8 @@ import Error from './ui/share/Error/Error'
 import axios from 'axios'
 import Settings from './Settings'
 import Dashborder from './ui/pages/Dashborder/Dashborder'
+import Profile from './ui/pages/Profile/Profile'
+import Cart from './ui/pages/Cart/Cart'
 
 class App extends React.Component{
   componentDidMount(){
@@ -35,6 +37,8 @@ class App extends React.Component{
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
               <Route path="/dashborder" component={Dashborder} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/cart" component={Cart} />
             </Switch>
           </div>
         </BrowserRouter>

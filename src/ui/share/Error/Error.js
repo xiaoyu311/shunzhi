@@ -11,14 +11,12 @@ class Error extends React.Component{
   }
   render(){
     return(
-      this.props.error?
-      <div onClick={this.close} className="error">
+      <div onClick={this.close} className={this.props.error ? "show-error error" : "error"}>
         <div className="error-wrap">
           <p>{this.props.msg}</p>
-          <button>关闭</button>
+          <button className="btn">关闭</button>
         </div>
       </div>
-      :null
     )
   }
 }

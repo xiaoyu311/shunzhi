@@ -12,11 +12,15 @@ class Sidebar extends React.Component{
   close = () =>{
     this.setState({isOpen:false})
   }
+  logout = () => {
+    localStorage.removeItem('userId')
+    this.props.dispatch({type:'LOG_OUT'})
+  }
   render(){
     let authStr = (
       <div>
         <span>{this.props.username}</span>
-        <Link to="/">退出</Link>
+        <Link onClick={this.logout} to="">退出</Link>
       </div>
     )
     let userInfo = (

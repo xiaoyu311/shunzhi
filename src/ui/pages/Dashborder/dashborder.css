@@ -1,7 +1,5 @@
 .dashborder .feet-wrap{
-  background-color: #F9FAFB;
   overflow: hidden;
-  padding-bottom: 30px;
 }
 .feet-wrap-item{
   margin: 20px 20px 0px 20px;
@@ -13,8 +11,9 @@
   display: flex;
   justify-content: space-between;
   margin-left: 20px;
+  align-items: center;
 }
-.dashborder .feet-item-top img{
+.dashborder .feet-item-top .feet-item-rigth{
   margin-right: 15px;
 }
 .dashborder .feet-item-left{

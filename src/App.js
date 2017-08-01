@@ -10,8 +10,10 @@ import Error from './ui/share/Error/Error'
 import axios from 'axios'
 import Settings from './Settings'
 import Dashborder from './ui/pages/Dashborder/Dashborder'
+import Dish from './ui/pages/Dish/Dish'
 import Profile from './ui/pages/Profile/Profile'
 import Cart from './ui/pages/Cart/Cart'
+// import './style.css'
 
 class App extends React.Component{
   componentDidMount(){
@@ -20,6 +22,12 @@ class App extends React.Component{
       axios.get(`${Settings.host}/user/${userId}`)
         .then( res => store.dispatch({type:'SIGN_UP', username:res.data.user.username}))
     }
+    axios.get(`${Settings.host}/dishes`)
+      .then( res => {
+        let {dishes} = res.data
+        store.dispatch({type:'LOAD_DISH', dishes})
+      })
+      .catch( err => console.log(err))
   }
   render(){
     return(
@@ -37,6 +45,7 @@ class App extends React.Component{
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
               <Route path="/dashborder" component={Dashborder} />
+              <Route path="/dish/:id" component={Dish} />
               <Route path="/profile" component={Profile} />
               <Route path="/cart" component={Cart} />
             </Switch>

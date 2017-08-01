@@ -15,16 +15,18 @@ class Dashborder extends React.Component{
     return(
       <div className="dashborder">
         <Header title="好友更新" />
-        {
-          this.cards.map( (item, index ) =>
-          <FeetItem
-            key={index}
-            name={item.name}
-            time={item.time}
-            url={item.url}
-            comment={item.comment}/>
-          )
-        }
+        <div style={{paddingBottom:'20px', background: '#F9FAFB'}}>
+          {
+            this.cards.map( (item, index ) =>
+            <FeetItem
+              key={index}
+              name={item.name}
+              time={item.time}
+              url={item.url}
+              comment={item.comment}/>
+            )
+          }
+        </div>
       </div>
     )
   }

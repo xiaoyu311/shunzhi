@@ -1,5 +1,6 @@
 import React from 'react'
-import Comment from './comment.svg'
+import CommentIcon from '../../icons/CommentIcon'
+import { Link } from 'react-router-dom'
 
 class FeetItem extends React.Component{
   state = {
@@ -15,6 +16,7 @@ class FeetItem extends React.Component{
       margin:" 0 auto",
       background:`url(${this.props.url})`,
       backgroundSize:'cover',
+      backgroundPosition:'center center',
       marginBottom:'15px'
     }
     let styles = {
@@ -31,9 +33,14 @@ class FeetItem extends React.Component{
                 <span className="feet-item-left-time">{this.props.time}</span>
               </div>
             </div>
-            <img onClick={this.Comment} src={Comment} alt="img" />
+            <div className="feet-item-rigth" onClick={this.Comment}>
+              <CommentIcon color={this.state.showComment?'#F77062':'#ccc'} />
+            </div>
           </div>
-          <div style={style}></div>
+          <Link to="/dish/597be20c2bbfdbaa14bfa248">
+            <div style={style}></div>
+          </Link>
+
         </div>
         <div style={styles} className="feet-wrap-comment">{this.props.comment}</div>
       </div>

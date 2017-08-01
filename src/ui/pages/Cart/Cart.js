@@ -1,51 +1,47 @@
 import React, { Component } from 'react'
 import Header from '../../share/Header/Header'
 import './cart.css'
+import { connect } from 'react-redux'
 
 class Cart extends Component {
   state = {
-    num:0,
-    item: [
-      {pic:'http://media.haoduoshipin.com/yummy/dishes/dish1.jpg', name:'white', price:'8', num:'2'},
-      {pic:'http://media.haoduoshipin.com/yummy/dishes/dish2.jpg', name:'white', price:'6', num:'2'},
-      {pic:'http://media.haoduoshipin.com/yummy/dishes/dish3.jpg', name:'white', price:'4', num:'2'},
-      {pic:'http://media.haoduoshipin.com/yummy/dishes/dish1.jpg', name:'white', price:'5', num:'2'}
-    ]
+    num:0
   }
   componentDidMount(){
     var total = 0
-    for (var i = 0; i < this.state.item.length; i++) {
-      total = Number(total) + Number(this.state.item[i].price*this.state.item[i].num)
+    for (var i = 0; i < this.props.cartItem.length; i++) {
+      total = Number(total) + Number(this.props.cartItem[i].cartItem.price*this.props.cartItem[i].num)
     }
     this.setState({num:total})
   }
   handleClick(num, index){
-    if ( this.state.item[index].num > 0 || num>0 ) {
-      let arr = this.state.item.slice()//数组拷贝
-      arr.map( (item, ind) =>{
+    if ( this.props.cartItem[index].num > 0 || num>0 ) {
+      let arr = this.props.cartItem.slice()//数组拷贝
+      var newItem = arr.map( (item, ind) =>{
         if (ind === index) {
           item.num = Number(item.num) + Number(num)
         }
         return item
       })
-      this.setState({item:arr})
+      this.props.dispatch({type:'REVISE_CART', cartItem:newItem})
       var total = 0
-      for (var i = 0; i < this.state.item.length; i++) {
-        total =Number(total) + Number(this.state.item[i].price*this.state.item[i].num)
+      for (var i = 0; i < this.props.cartItem.length; i++) {
+        total =Number(total) + Number(this.props.cartItem[i].cartItem.price*this.props.cartItem[i].num)
       }
       this.setState({num:total})
     }
 
   }
   render() {
-    const showProduct = this.state.item.map( (item, index) => {
+    console.log(this.props.cartItem);
+    const showProduct = this.props.cartItem.map( (item, index) => {
       return (
         <div key={index} className="cart-show-item">
           <div className="show-wrap-left">
-            <img src={item.pic} alt="img" />
+            <img src={item.cartItem.poster} alt="img" />
             <div className="show-wrap-left-right">
-              <h3>{item.name}</h3>
-              <span>${item.price}</span>
+              <h3>{item.cartItem.name}</h3>
+              <span>${item.cartItem.price}</span>
             </div>
           </div>
           <div className="show-wrap-right">
@@ -64,7 +60,7 @@ class Cart extends Component {
         <div className="cart-wrap">
           <div className="cart-total">{this.state.num}元</div>
           <div className="cart-show-wrap">
-            <div>{showProduct}</div>
+            <div style={{marginTop:'-70px'}}>{showProduct}</div>
             <div className="balabce">
               结账
             </div>
@@ -75,5 +71,7 @@ class Cart extends Component {
   }
 }
 
-
-export default Cart
+const mapStateToProps = (state) => ({
+  cartItem:state.dishReducer.cart
+})
+export default connect(mapStateToProps)(Cart)

@@ -38,7 +38,7 @@ class Sidebar extends React.Component{
             <Link to="">个人中心</Link>
             <Link to="">首页</Link>
             <Link to="">购物车</Link>
-            <Link to="">猜你喜欢</Link>
+            <Link onClick={this.close} to="/dashborder">猜你喜欢</Link>
           </div>
           <div className="bm-list-footer">
             <button onClick={this.close}>关闭</button>
